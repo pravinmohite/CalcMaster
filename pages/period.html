@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Track and predict your menstrual cycle with our free period calculator. Get accurate predictions for your next period, ovulation, and fertile days.">
+  <title>Period Calculator - CalcMaster</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/calculators/period.css">
+  <script src="../js/theme.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/calculators/period.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="../index.html">
+          <h1>CalcMaster</h1>
+        </a>
+      </div>
+      <nav>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link">Health</a>
+            <ul class="dropdown-menu">
+              <li><a href="body-type.html">Body Type Calculator</a></li>
+              <li><a href="bsa.html">BSA Calculator</a></li>
+              <li><a href="protein-intake.html">Protein Intake Calculator</a></li>
+              <li><a href="body-shape.html">Body Shape Calculator</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link">Women's Health</a>
+            <ul class="dropdown-menu">
+              <li><a href="period.html">Period Calculator</a></li>
+              <li><a href="menstrual-cycle.html">Menstrual Cycle Calculator</a></li>
+              <li><a href="bra-size.html">Bra Size Calculator</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link">Utilities</a>
+            <ul class="dropdown-menu">
+              <li><a href="fuel.html">Fuel Calculator</a></li>
+              <li><a href="electricity-unit.html">Electricity Unit Calculator</a></li>
+              <li><a href="electricity-consumption.html">Electricity Consumption Calculator</a></li>
+              <li><a href="tyre-size.html">Tyre Size Calculator</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="birthday-calendar.html" class="nav-link">Birthday Calendar</a>
+          </li>
+          <li class="nav-item">
+            <a href="conversion-table.html" class="nav-link">Conversion Tables</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn" aria-label="Toggle dark/light mode">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="calculator-header">
+      <div class="container">
+        <h1>Period Calculator</h1>
+        <p>Track your menstrual cycle, predict your next period, and identify your fertile window</p>
+      </div>
+    </section>
+
+    <section class="calculator-section">
+      <div class="container">
+        <div class="calculator-container">
+          <div class="calculator-description">
+            <h2>About Period Tracking</h2>
+            <p>Understanding your menstrual cycle helps you:</p>
+            <ul>
+              <li>Predict your next period and prepare accordingly</li>
+              <li>Identify your fertile window if you're trying to conceive</li>
+              <li>Know when to expect PMS symptoms</li>
+              <li>Track cycle irregularities that may indicate health concerns</li>
+            </ul>
+            <p>This calculator provides estimates based on your inputs. Every body is different, and cycles can vary due to stress, lifestyle changes, medications, or health conditions.</p>
+          </div>
+
+          <div class="calculator-form">
+            <h2>Calculate Your Cycle</h2>
+            <form id="periodForm">
+              <div class="form-section">
+                <h3>Cycle Information</h3>
+                <div class="form-group">
+                  <label for="lastPeriod">First day of your last period</label>
+                  <input type="date" id="lastPeriod" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="cycleLength">Average cycle length (days)</label>
+                  <div class="input-with-slider">
+                    <input type="number" id="cycleLength" min="21" max="45" value="28" required>
+                    <input type="range" id="cycleLengthSlider" min="21" max="45" value="28">
+                  </div>
+                  <div class="slider-labels">
+                    <span>21</span>
+                    <span>28</span>
+                    <span>35</span>
+                    <span>45</span>
+                  </div>
+                  <div class="input-hint">Most women have cycles between 21-35 days</div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="periodLength">Average period length (days)</label>
+                  <div class="input-with-slider">
+                    <input type="number" id="periodLength" min="2" max="10" value="5" required>
+                    <input type="range" id="periodLengthSlider" min="2" max="10" value="5">
+                  </div>
+                  <div class="slider-labels">
+                    <span>2</span>
+                    <span>5</span>
+                    <span>7</span>
+                    <span>10</span>
+                  </div>
+                  <div class="input-hint">Most periods last between 3-7 days</div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <h3>Advanced Options</h3>
+                <div class="form-group">
+                  <label for="lutealPhase">Luteal phase length (days)</label>
+                  <div class="input-with-slider">
+                    <input type="number" id="lutealPhase" min="10" max="16" value="14">
+                    <input type="range" id="lutealPhaseSlider" min="10" max="16" value="14">
+                  </div>
+                  <div class="input-hint">The luteal phase is typically 12-14 days for most women</div>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                  <label class="checkbox-label">
+                    <input type="checkbox" id="trackSymptoms">
+                    <span>I want to track symptoms</span>
+                  </label>
+                </div>
+              </div>
+              
+              <div id="symptomsSection" class="form-section hidden">
+                <h3>Symptoms Tracking</h3>
+                <div class="symptom-checkboxes">
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="symptoms" value="cramps">
+                    <span>Cramps</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="symptoms" value="bloating">
+                    <span>Bloating</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="symptoms" value="fatigue">
+                    <span>Fatigue</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="symptoms" value="headache">
+                    <span>Headache</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="symptoms" value="mood_swings">
+                    <span>Mood Swings</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="symptoms" value="breast_tenderness">
+                    <span>Breast Tenderness</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="symptoms" value="acne">
+                    <span>Acne</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" name="symptoms" value="back_pain">
+                    <span>Back Pain</span>
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label for="symptomsNotes">Notes</label>
+                  <textarea id="symptomsNotes" rows="3" placeholder="Add any additional symptoms or notes here..."></textarea>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" id="resetForm" class="btn btn-outline">Reset</button>
+                <button type="submit" class="btn btn-primary">Calculate Cycle</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="results" class="result-container hidden">
+          <!-- Results will be displayed here via JavaScript -->
+        </div>
+
+        <div class="calendar-container hidden" id="calendarContainer">
+          <h2>Your Cycle Calendar</h2>
+          <div class="calendar-controls">
+            <button id="prevMonth" class="btn btn-outline calendar-nav-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <h3 id="currentMonth">August 2025</h3>
+            <button id="nextMonth" class="btn btn-outline calendar-nav-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="calendar-legend">
+            <div class="legend-item">
+              <span class="legend-color period-day"></span>
+              <span>Period</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color fertile-day"></span>
+              <span>Fertile Window</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color ovulation-day"></span>
+              <span>Ovulation</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color pms-day"></span>
+              <span>PMS</span>
+            </div>
+          </div>
+          <div id="calendar" class="calendar">
+            <!-- Calendar will be rendered here via JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="container">
+        <h2>Understanding Your Menstrual Cycle</h2>
+        <div class="cycle-diagram">
+          <img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Menstrual cycle diagram" class="cycle-image">
+          <div class="cycle-phases">
+            <div class="cycle-phase">
+              <h3>Menstrual Phase</h3>
+              <p>Day 1-5: The uterine lining sheds, resulting in menstrual flow. This marks the beginning of a new cycle.</p>
+            </div>
+            <div class="cycle-phase">
+              <h3>Follicular Phase</h3>
+              <p>Day 1-13: Overlaps with menstruation. Follicle-stimulating hormone (FSH) stimulates follicle growth in the ovaries.</p>
+            </div>
+            <div class="cycle-phase">
+              <h3>Ovulation</h3>
+              <p>Day 14 (in a 28-day cycle): A mature egg is released from the ovary and moves toward the fallopian tube.</p>
+            </div>
+            <div class="cycle-phase">
+              <h3>Luteal Phase</h3>
+              <p>Day 15-28: The follicle transforms into the corpus luteum, which produces progesterone to prepare for possible pregnancy.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="info-cards">
+          <div class="info-card">
+            <h3>Tracking for Fertility</h3>
+            <p>If you're trying to conceive, your most fertile days are the 3-5 days before ovulation and the day of ovulation itself. Tracking your cycle can help identify this window.</p>
+            <p>Remember that ovulation usually occurs around 14 days before your next period starts, not necessarily on day 14 of your cycle.</p>
+          </div>
+          
+          <div class="info-card">
+            <h3>Cycle Irregularities</h3>
+            <p>It's normal for cycles to vary by a few days from month to month. However, consistently irregular cycles may indicate hormonal imbalances, stress, excessive exercise, significant weight changes, or conditions like PCOS.</p>
+            <p>Consult a healthcare provider if:</p>
+            <ul>
+              <li>Your periods suddenly become irregular after being regular</li>
+              <li>You miss three or more periods in a row</li>
+              <li>Your periods are less than 21 days or more than 35 days apart</li>
+              <li>Your periods last longer than 7 days</li>
+              <li>Your periods are unusually heavy or painful</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>CalcMaster</h3>
+          <p>Simple, accurate calculators for health, fitness, and everyday needs.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="#">Health Calculators</a></li>
+            <li><a href="#">Women's Health</a></li>
+            <li><a href="#">Utility Calculators</a></li>
+            <li><a href="#">Conversion Tools</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Popular Tools</h3>
+          <ul>
+            <li><a href="body-type.html">Body Type Calculator</a></li>
+            <li><a href="period.html">Period Calculator</a></li>
+            <li><a href="bra-size.html">Bra Size Calculator</a></li>
+            <li><a href="fuel.html">Fuel Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <p>Questions or suggestions? <a href="mailto:contact@calcmaster.com">contact@calcmaster.com</a></p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 CalcMaster. All rights reserved.</p>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/navigation.js"></script>
+</body>
+</html>

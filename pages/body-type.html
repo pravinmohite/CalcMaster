@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculate your body type based on measurements. Our free body type calculator helps determine if you're an ectomorph, mesomorph, or endomorph.">
+  <title>Body Type Calculator - CalcMaster</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/calculators/body-type.css">
+  <script src="../js/theme.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/calculators/body-type.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="../index.html">
+          <h1>CalcMaster</h1>
+        </a>
+      </div>
+      <nav>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link">Health</a>
+            <ul class="dropdown-menu">
+              <li><a href="body-type.html">Body Type Calculator</a></li>
+              <li><a href="bsa.html">BSA Calculator</a></li>
+              <li><a href="protein-intake.html">Protein Intake Calculator</a></li>
+              <li><a href="body-shape.html">Body Shape Calculator</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link">Women's Health</a>
+            <ul class="dropdown-menu">
+              <li><a href="period.html">Period Calculator</a></li>
+              <li><a href="menstrual-cycle.html">Menstrual Cycle Calculator</a></li>
+              <li><a href="bra-size.html">Bra Size Calculator</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link">Utilities</a>
+            <ul class="dropdown-menu">
+              <li><a href="fuel.html">Fuel Calculator</a></li>
+              <li><a href="electricity-unit.html">Electricity Unit Calculator</a></li>
+              <li><a href="electricity-consumption.html">Electricity Consumption Calculator</a></li>
+              <li><a href="tyre-size.html">Tyre Size Calculator</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="birthday-calendar.html" class="nav-link">Birthday Calendar</a>
+          </li>
+          <li class="nav-item">
+            <a href="conversion-table.html" class="nav-link">Conversion Tables</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn" aria-label="Toggle dark/light mode">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="calculator-header">
+      <div class="container">
+        <h1>Body Type Calculator</h1>
+        <p>Determine your body type (somatotype) based on key measurements and physical characteristics.</p>
+      </div>
+    </section>
+
+    <section class="calculator-section">
+      <div class="container">
+        <div class="calculator-container">
+          <div class="calculator-description">
+            <h2>About Body Types</h2>
+            <p>Body types, or somatotypes, are classifications used to categorize the human physique. There are three main body types:</p>
+            <ul>
+              <li><strong>Ectomorph:</strong> Typically thin, with a slight build, long limbs, and minimal body fat and muscle.</li>
+              <li><strong>Mesomorph:</strong> Athletic build with well-defined muscles, wider shoulders, and narrow waist.</li>
+              <li><strong>Endomorph:</strong> Softer, rounder build with larger bone structure and higher body fat percentage.</li>
+            </ul>
+            <p>Most people are a combination of these types, with one being dominant. This calculator helps identify your primary body type based on your measurements and characteristics.</p>
+          </div>
+
+          <div class="calculator-form">
+            <h2>Calculate Your Body Type</h2>
+            <form id="bodyTypeForm">
+              <div class="form-section">
+                <h3>Basic Information</h3>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="gender">Sex</label>
+                    <select id="gender" required>
+                      <option value="">Select</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" min="18" max="100" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <h3>Basic Measurements</h3>
+                <div class="unit-toggle">
+                  <button type="button" id="metricToggle" class="active">Metric (cm/kg)</button>
+                  <button type="button" id="imperialToggle">Imperial (in/lb)</button>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="height">Height</label>
+                    <div class="input-with-unit">
+                      <input type="number" id="height" required>
+                      <span class="unit" id="heightUnit">cm</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="weight">Weight</label>
+                    <div class="input-with-unit">
+                      <input type="number" id="weight" required>
+                      <span class="unit" id="weightUnit">kg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <h3>Body Structure</h3>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="wrist">Wrist Circumference</label>
+                    <div class="input-with-unit">
+                      <input type="number" id="wrist" step="0.1">
+                      <span class="unit" id="wristUnit">cm</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="shoulder">Shoulder Width</label>
+                    <div class="input-with-unit">
+                      <input type="number" id="shoulder" step="0.1">
+                      <span class="unit" id="shoulderUnit">cm</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="hip">Hip Circumference</label>
+                    <div class="input-with-unit">
+                      <input type="number" id="hip" step="0.1">
+                      <span class="unit" id="hipUnit">cm</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="waist">Waist Circumference</label>
+                    <div class="input-with-unit">
+                      <input type="number" id="waist" step="0.1">
+                      <span class="unit" id="waistUnit">cm</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <h3>Physical Characteristics</h3>
+                <div class="form-group">
+                  <label>How easily do you gain or lose weight?</label>
+                  <div class="radio-group">
+                    <label class="radio-option">
+                      <input type="radio" name="weightChange" value="hard" required>
+                      <span>Hard to gain weight</span>
+                    </label>
+                    <label class="radio-option">
+                      <input type="radio" name="weightChange" value="moderate">
+                      <span>Moderate (can gain/lose with effort)</span>
+                    </label>
+                    <label class="radio-option">
+                      <input type="radio" name="weightChange" value="easy">
+                      <span>Easy to gain weight</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>How would you describe your natural muscle definition?</label>
+                  <div class="radio-group">
+                    <label class="radio-option">
+                      <input type="radio" name="muscleTone" value="low" required>
+                      <span>Minimal muscle definition</span>
+                    </label>
+                    <label class="radio-option">
+                      <input type="radio" name="muscleTone" value="moderate">
+                      <span>Moderate muscle definition</span>
+                    </label>
+                    <label class="radio-option">
+                      <input type="radio" name="muscleTone" value="high">
+                      <span>High muscle definition</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>How would you describe your bone structure?</label>
+                  <div class="radio-group">
+                    <label class="radio-option">
+                      <input type="radio" name="boneStructure" value="small" required>
+                      <span>Small (narrow shoulders, small wrists)</span>
+                    </label>
+                    <label class="radio-option">
+                      <input type="radio" name="boneStructure" value="medium">
+                      <span>Medium (average proportions)</span>
+                    </label>
+                    <label class="radio-option">
+                      <input type="radio" name="boneStructure" value="large">
+                      <span>Large (broad shoulders, thick wrists)</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" id="resetForm" class="btn btn-outline">Reset</button>
+                <button type="submit" class="btn btn-primary">Calculate Body Type</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="results" class="result-container hidden">
+          <!-- Results will be displayed here via JavaScript -->
+        </div>
+
+        <div class="body-type-info">
+          <h2>Understanding Your Body Type</h2>
+          
+          <div class="body-type-cards">
+            <div class="body-type-card" id="ectomorph-card">
+              <div class="body-type-image">
+                <img src="https://images.pexels.com/photos/1547248/pexels-photo-1547248.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Ectomorph body type" width="300" height="400">
+              </div>
+              <div class="body-type-content">
+                <h3>Ectomorph</h3>
+                <p>Ectomorphs are typically lean and long, with difficulty building muscle. They have a light build with small joints and lean muscle. Usually they have long limbs with stringy muscles. Their shoulders tend to be thin with little width.</p>
+                <h4>Characteristics:</h4>
+                <ul>
+                  <li>Thin appearance</li>
+                  <li>Small shoulders</li>
+                  <li>Difficulty gaining weight</li>
+                  <li>Fast metabolism</li>
+                  <li>Long, lean muscles</li>
+                </ul>
+                <h4>Training Recommendations:</h4>
+                <p>Focus on resistance training with heavy weights and compound movements. Limit cardio to short, high-intensity sessions. Ensure sufficient caloric intake.</p>
+              </div>
+            </div>
+            
+            <div class="body-type-card" id="mesomorph-card">
+              <div class="body-type-image">
+                <img src="https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mesomorph body type" width="300" height="400">
+              </div>
+              <div class="body-type-content">
+                <h3>Mesomorph</h3>
+                <p>Mesomorphs have a medium-sized structure with athletic abilities and responsive muscle cells. They tend to be naturally strong with excellent posture. They gain and lose weight easily and are predisposed to building muscle.</p>
+                <h4>Characteristics:</h4>
+                <ul>
+                  <li>Athletic appearance</li>
+                  <li>Naturally muscular</li>
+                  <li>Responsive to exercise</li>
+                  <li>Moderate metabolism</li>
+                  <li>Efficient at converting calories to energy</li>
+                </ul>
+                <h4>Training Recommendations:</h4>
+                <p>Balanced training approach with moderate weights and repetitions. Mix of cardio and resistance training works well. Can adapt to various training styles.</p>
+              </div>
+            </div>
+            
+            <div class="body-type-card" id="endomorph-card">
+              <div class="body-type-image">
+                <img src="https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Endomorph body type" width="300" height="400">
+              </div>
+              <div class="body-type-content">
+                <h3>Endomorph</h3>
+                <p>Endomorphs have a higher percentage of body fat with a larger bone structure. They tend to be shorter with thick arms and legs. Their muscles are strong, especially in the lower body. They gain muscle and fat very easily.</p>
+                <h4>Characteristics:</h4>
+                <ul>
+                  <li>Soft, round body</li>
+                  <li>Gains muscle and fat easily</li>
+                  <li>Slow metabolism</li>
+                  <li>Difficulty losing weight</li>
+                  <li>Strong lower body muscles</li>
+                </ul>
+                <h4>Training Recommendations:</h4>
+                <p>Higher repetition resistance training with shorter rest periods. Regular cardio is important for fat loss. Diet is crucial - focus on balanced nutrition with controlled caloric intake.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tips-section">
+      <div class="container">
+        <h2>Tips for Your Body Type</h2>
+        <div class="tips-container">
+          <div class="tip-card">
+            <div class="tip-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                <line x1="6" y1="1" x2="6" y2="4"></line>
+                <line x1="10" y1="1" x2="10" y2="4"></line>
+                <line x1="14" y1="1" x2="14" y2="4"></line>
+              </svg>
+            </div>
+            <h3>Nutrition Tips</h3>
+            <div class="tip-content">
+              <div class="tip-section" data-type="ectomorph">
+                <h4>For Ectomorphs:</h4>
+                <ul>
+                  <li>Focus on calorie-dense foods</li>
+                  <li>Eat frequently (5-6 meals per day)</li>
+                  <li>Higher carbohydrate intake (50-60% of calories)</li>
+                  <li>Moderate protein (25-30% of calories)</li>
+                  <li>Healthy fats (15-25% of calories)</li>
+                </ul>
+              </div>
+              <div class="tip-section" data-type="mesomorph">
+                <h4>For Mesomorphs:</h4>
+                <ul>
+                  <li>Balanced macronutrient intake</li>
+                  <li>Moderate carbs (40% of calories)</li>
+                  <li>Higher protein (30-35% of calories)</li>
+                  <li>Moderate fat (25-30% of calories)</li>
+                  <li>Focus on nutrient timing around workouts</li>
+                </ul>
+              </div>
+              <div class="tip-section" data-type="endomorph">
+                <h4>For Endomorphs:</h4>
+                <ul>
+                  <li>Lower carbohydrate intake (25-35% of calories)</li>
+                  <li>Higher protein (30-35% of calories)</li>
+                  <li>Moderate healthy fats (30-40% of calories)</li>
+                  <li>Focus on fiber-rich foods and vegetables</li>
+                  <li>Avoid processed foods and refined sugars</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tip-card">
+            <div class="tip-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+              </svg>
+            </div>
+            <h3>Exercise Tips</h3>
+            <div class="tip-content">
+              <div class="tip-section" data-type="ectomorph">
+                <h4>For Ectomorphs:</h4>
+                <ul>
+                  <li>Focus on compound exercises (squats, deadlifts, bench press)</li>
+                  <li>Heavier weights with lower reps (6-10 per set)</li>
+                  <li>Longer rest periods between sets (2-3 minutes)</li>
+                  <li>Limit cardio to 2-3 short, high-intensity sessions per week</li>
+                  <li>Ensure adequate recovery between workouts</li>
+                </ul>
+              </div>
+              <div class="tip-section" data-type="mesomorph">
+                <h4>For Mesomorphs:</h4>
+                <ul>
+                  <li>Mix of compound and isolation exercises</li>
+                  <li>Moderate weights with moderate reps (8-12 per set)</li>
+                  <li>Moderate rest periods (60-90 seconds)</li>
+                  <li>Balance between resistance training and cardio</li>
+                  <li>Can adapt to various training styles effectively</li>
+                </ul>
+              </div>
+              <div class="tip-section" data-type="endomorph">
+                <h4>For Endomorphs:</h4>
+                <ul>
+                  <li>Higher rep ranges (12-15 per set) with moderate weights</li>
+                  <li>Circuit-style training to keep heart rate elevated</li>
+                  <li>Shorter rest periods (30-60 seconds)</li>
+                  <li>Regular cardio (4-5 sessions per week)</li>
+                  <li>Mix of HIIT and steady-state cardio for optimal fat loss</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>CalcMaster</h3>
+          <p>Simple, accurate calculators for health, fitness, and everyday needs.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="#">Health Calculators</a></li>
+            <li><a href="#">Women's Health</a></li>
+            <li><a href="#">Utility Calculators</a></li>
+            <li><a href="#">Conversion Tools</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Popular Tools</h3>
+          <ul>
+            <li><a href="body-type.html">Body Type Calculator</a></li>
+            <li><a href="period.html">Period Calculator</a></li>
+            <li><a href="bra-size.html">Bra Size Calculator</a></li>
+            <li><a href="fuel.html">Fuel Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <p>Questions or suggestions? <a href="mailto:contact@calcmaster.com">contact@calcmaster.com</a></p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 CalcMaster. All rights reserved.</p>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/navigation.js"></script>
+</body>
+</html>

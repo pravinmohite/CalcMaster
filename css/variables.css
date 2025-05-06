@@ -1,0 +1,140 @@
+:root {
+  /* Colors */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  
+  --color-secondary-50: #ecfdf5;
+  --color-secondary-100: #d1fae5;
+  --color-secondary-200: #a7f3d0;
+  --color-secondary-300: #6ee7b7;
+  --color-secondary-400: #34d399;
+  --color-secondary-500: #10b981;
+  --color-secondary-600: #059669;
+  --color-secondary-700: #047857;
+  --color-secondary-800: #065f46;
+  --color-secondary-900: #064e3b;
+  
+  --color-accent-50: #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+  --color-accent-800: #92400e;
+  --color-accent-900: #78350f;
+  
+  --color-success-50: #f0fdf4;
+  --color-success-500: #22c55e;
+  --color-success-700: #15803d;
+  
+  --color-warning-50: #fffbeb;
+  --color-warning-500: #f59e0b;
+  --color-warning-700: #b45309;
+  
+  --color-error-50: #fef2f2;
+  --color-error-500: #ef4444;
+  --color-error-700: #b91c1c;
+  
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  
+  /* Light theme variables */
+  --color-bg: #ffffff;
+  --color-bg-offset: var(--color-gray-50);
+  --color-text: var(--color-gray-900);
+  --color-text-offset: var(--color-gray-600);
+  --color-border: var(--color-gray-200);
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  
+  /* Spacing */
+  --space-1: 0.4rem; /* 4px */
+  --space-2: 0.8rem; /* 8px */
+  --space-3: 1.6rem; /* 16px */
+  --space-4: 2.4rem; /* 24px */
+  --space-5: 3.2rem; /* 32px */
+  --space-6: 4.8rem; /* 48px */
+  --space-7: 6.4rem; /* 64px */
+  --space-8: 9.6rem; /* 96px */
+  
+  /* Typography */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  
+  /* Radius */
+  --radius-sm: 0.4rem; /* 4px */
+  --radius: 0.8rem; /* 8px */
+  --radius-md: 1.2rem; /* 12px */
+  --radius-lg: 1.6rem; /* 16px */
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Animations */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Container */
+  --container-padding: var(--space-3);
+  --container-width: 120rem; /* 1200px */
+  
+  /* Other */
+  --header-height: 6.4rem; /* 64px */
+}
+
+/* Dark theme */
+.dark-mode {
+  --color-bg: var(--color-gray-900);
+  --color-bg-offset: var(--color-gray-800);
+  --color-text: var(--color-gray-50);
+  --color-text-offset: var(--color-gray-400);
+  --color-border: var(--color-gray-700);
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  
+  --color-primary-500: #60a5fa;
+  --color-secondary-500: #34d399;
+  --color-accent-500: #fbbf24;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* Media query variables */
+@media (min-width: 640px) {
+  :root {
+    --container-padding: var(--space-4);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-padding: var(--space-5);
+  }
+}

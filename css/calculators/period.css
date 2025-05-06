@@ -1,0 +1,541 @@
+/* Period Calculator Specific Styles */
+
+.calculator-header {
+  background: linear-gradient(to right, #fe5f75, #fc9842);
+  color: white;
+  padding: var(--space-5) 0;
+  text-align: center;
+}
+
+.calculator-header h1 {
+  margin-bottom: var(--space-2);
+}
+
+.calculator-header p {
+  font-size: 1.8rem;
+  max-width: 70rem;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.calculator-section {
+  padding: var(--space-5) 0;
+}
+
+.calculator-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.calculator-description {
+  padding: var(--space-4);
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow);
+}
+
+.calculator-description h2 {
+  font-size: 2.2rem;
+  margin-bottom: var(--space-3);
+}
+
+.calculator-description p {
+  margin-bottom: var(--space-2);
+}
+
+.calculator-description ul {
+  margin-left: var(--space-4);
+  margin-bottom: var(--space-3);
+  list-style-type: disc;
+}
+
+.calculator-description li {
+  margin-bottom: var(--space-1);
+}
+
+.calculator-form {
+  padding: var(--space-4);
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow);
+}
+
+.calculator-form h2 {
+  font-size: 2.2rem;
+  margin-bottom: var(--space-3);
+  text-align: center;
+}
+
+.form-section {
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.form-section:last-child {
+  border-bottom: none;
+}
+
+.form-section h3 {
+  margin-bottom: var(--space-3);
+  color: #fe5f75;
+}
+
+.form-section.hidden {
+  display: none;
+}
+
+.input-with-slider {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 0.8rem;
+  background-color: var(--color-bg-offset);
+  border-radius: var(--radius-full);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 2rem;
+  height: 2rem;
+  background: #fe5f75;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: var(--shadow);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 2rem;
+  height: 2rem;
+  background: #fe5f75;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: var(--shadow);
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  color: var(--color-text-offset);
+  margin-top: var(--space-1);
+}
+
+.input-hint {
+  font-size: 1.2rem;
+  color: var(--color-text-offset);
+  margin-top: var(--space-1);
+}
+
+.checkbox-group {
+  margin-top: var(--space-3);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 2rem;
+  height: 2rem;
+}
+
+.symptom-checkboxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-4);
+}
+
+/* Results Container */
+.result-container {
+  padding: var(--space-4);
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow);
+  margin-bottom: var(--space-5);
+  transition: all var(--transition);
+}
+
+.result-container.hidden {
+  display: none;
+}
+
+.result-header {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.result-header h3 {
+  font-size: 2.4rem;
+  color: #fe5f75;
+  margin-bottom: var(--space-2);
+}
+
+.result-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.result-card {
+  padding: var(--space-3);
+  border-radius: var(--radius);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.result-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.result-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.result-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-full);
+  color: white;
+}
+
+.period-icon {
+  background-color: #fe5f75;
+}
+
+.fertile-icon {
+  background-color: #9c48f0;
+}
+
+.ovulation-icon {
+  background-color: #fc9842;
+}
+
+.pms-icon {
+  background-color: #4481eb;
+}
+
+.result-card h4 {
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.result-card p {
+  margin-bottom: var(--space-1);
+}
+
+.date-range {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.view-calendar-btn {
+  display: block;
+  margin: var(--space-4) auto 0;
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-primary-600);
+  color: white;
+  border-radius: var(--radius);
+  text-align: center;
+  transition: background-color var(--transition);
+}
+
+.view-calendar-btn:hover {
+  background-color: var(--color-primary-700);
+}
+
+/* Calendar Styles */
+.calendar-container {
+  padding: var(--space-4);
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow);
+  margin-bottom: var(--space-5);
+}
+
+.calendar-container.hidden {
+  display: none;
+}
+
+.calendar-container h2 {
+  text-align: center;
+  margin-bottom: var(--space-3);
+}
+
+.calendar-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.calendar-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+}
+
+#currentMonth {
+  font-size: 2rem;
+}
+
+.calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.legend-color {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-sm);
+}
+
+.period-day {
+  background-color: #fe5f75;
+}
+
+.fertile-day {
+  background-color: #9c48f0;
+}
+
+.ovulation-day {
+  background-color: #fc9842;
+}
+
+.pms-day {
+  background-color: #4481eb;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.2rem;
+}
+
+.calendar-header {
+  display: contents;
+}
+
+.calendar-header div {
+  padding: var(--space-1);
+  text-align: center;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-offset);
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  position: relative;
+  cursor: default;
+}
+
+.calendar-day.inactive {
+  color: var(--color-text-offset);
+  opacity: 0.5;
+}
+
+.calendar-day.today {
+  border: 2px solid var(--color-primary-500);
+  font-weight: var(--font-weight-bold);
+}
+
+.calendar-day .day-highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-sm);
+  z-index: -1;
+}
+
+.calendar-day .day-number {
+  z-index: 1;
+  font-weight: var(--font-weight-medium);
+}
+
+.day-tooltip {
+  position: absolute;
+  bottom: 105%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  min-width: 15rem;
+  z-index: 10;
+  display: none;
+}
+
+.calendar-day:hover .day-tooltip {
+  display: block;
+}
+
+/* Cycle info section */
+.info-section {
+  background-color: var(--color-bg-offset);
+  padding: var(--space-6) 0;
+}
+
+.info-section h2 {
+  text-align: center;
+  margin-bottom: var(--space-5);
+}
+
+.cycle-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.cycle-image {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  max-height: 30rem;
+  object-fit: cover;
+}
+
+.cycle-phases {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.cycle-phase {
+  padding: var(--space-3);
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.cycle-phase h3 {
+  margin-bottom: var(--space-2);
+  color: #fe5f75;
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.info-card {
+  padding: var(--space-4);
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.info-card h3 {
+  margin-bottom: var(--space-3);
+  color: var(--color-primary-600);
+}
+
+.info-card p {
+  margin-bottom: var(--space-2);
+}
+
+.info-card ul {
+  margin-left: var(--space-4);
+  margin-top: var(--space-2);
+  list-style-type: disc;
+}
+
+.info-card li {
+  margin-bottom: var(--space-1);
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .calculator-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .symptom-checkboxes {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .result-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .cycle-diagram {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .cycle-image {
+    width: 40%;
+  }
+  
+  .cycle-phases {
+    width: 60%;
+  }
+  
+  .info-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .result-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .cycle-phases {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
